@@ -156,6 +156,15 @@ main[b-7v9fucczvh] {
     transform: scale(1.1); 
 }
 
+.media[b-fx5atut3jr] {
+    display: flex;
+    align-items: flex-start;
+}
+
+.media-body[b-fx5atut3jr] {
+    flex: 1;
+}
+
 .media-img-wrapper[b-fx5atut3jr] {
     width: 200px;
     text-align: center;
