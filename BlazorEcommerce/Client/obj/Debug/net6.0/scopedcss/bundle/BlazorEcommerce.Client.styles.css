@@ -144,7 +144,7 @@ main[b-7v9fucczvh] {
     }
 }
 /* /Shared/ProductList.razor.rz.scp.css */
-media-img[b-fx5atut3jr] {
+.media-img[b-fx5atut3jr] {
     max-height: 200px;
     max-width: 200px;
     border-radius: 6px;
@@ -152,11 +152,11 @@ media-img[b-fx5atut3jr] {
     transition: transform .2s;
 }
 
-media-img-hover[b-fx5atut3jr]{
+.media-img:hover[b-fx5atut3jr]{
     transform: scale(1.1); 
 }
 
-media-img-wrapper[b-fx5atut3jr] {
+.media-img-wrapper[b-fx5atut3jr] {
     width: 200px;
     text-align: center;
 }
