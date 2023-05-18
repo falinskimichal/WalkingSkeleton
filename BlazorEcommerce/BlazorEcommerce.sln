@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcommerce.Server", "Server\BlazorEcommerce.Server.csproj", "{6FC27080-8697-4979-910D-3AEB9410623F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcommerce.Server", "Server\BlazorEcommerce.Server.csproj", "{6FC27080-8697-4979-910D-3AEB9410623F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcommerce.Client", "Client\BlazorEcommerce.Client.csproj", "{E970BDFC-A224-4591-96A7-ED3DC2B9D5B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcommerce.Client", "Client\BlazorEcommerce.Client.csproj", "{E970BDFC-A224-4591-96A7-ED3DC2B9D5B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEcommerce.Shared", "Shared\BlazorEcommerce.Shared.csproj", "{5B860D3E-63E4-4E9E-914F-51F1E0F9BB2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcommerce.Shared", "Shared\BlazorEcommerce.Shared.csproj", "{5B860D3E-63E4-4E9E-914F-51F1E0F9BB2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
