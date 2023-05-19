@@ -13,6 +13,10 @@ media-img-wrapper[b-0l6p78lwiq]{
 }
 
 @media(maxwidth: 1023.98px){
+    .media[b-0l6p78lwiq] {
+        flex-direction: column;
+    }
+    
     .media-img[b-0l6p78lwiq]{
         max-width: 300px;
     }

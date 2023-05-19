@@ -12,6 +12,10 @@ media-img-wrapper{
 }
 
 @media(maxwidth: 1023.98px){
+    .media {
+        flex-direction: column;
+    }
+    
     .media-img{
         max-width: 300px;
     }
