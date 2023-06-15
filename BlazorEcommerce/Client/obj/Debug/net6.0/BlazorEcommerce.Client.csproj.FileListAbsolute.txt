@@ -828,3 +828,7 @@ D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\BlazorEcommerce.Clien
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\ref\BlazorEcommerce.Client.dll
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\ProductList.razor.rz.scp.css
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Pages\ProductDetails.razor.rz.scp.css
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\ShopLayout.razor.rz.scp.css
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\ShopNavMenu.razor.rz.scp.css
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\homeButton.razor.rz.scp.css
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\FeaturedProducts.razor.rz.scp.css
