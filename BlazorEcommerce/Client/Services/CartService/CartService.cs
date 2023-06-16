@@ -23,11 +23,18 @@ namespace BlazorEcommerce.Client.Services.CartService
             cart.Add(item);
 
             await _localStorage.SetItemAsync("cart", cart);
+            OnChange.Invoke();
         }
 
-        public Task<List<CartItem>> GetCartItems()
+        public async Task<List<CartItem>> GetCartItems()
         {
-            throw new NotImplementedException();
+            var cart = await _localStorage.GetItemAsync<List<CartItem>>("cart");
+            if (cart == null)
+            {
+                cart = new List<CartItem>();
+            }
+
+            return cart;
         }
     }
 }
