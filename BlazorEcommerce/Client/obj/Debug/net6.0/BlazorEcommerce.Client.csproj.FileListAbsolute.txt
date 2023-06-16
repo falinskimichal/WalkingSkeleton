@@ -832,3 +832,7 @@ D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\Shop
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\ShopNavMenu.razor.rz.scp.css
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\homeButton.razor.rz.scp.css
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\FeaturedProducts.razor.rz.scp.css
+D:\WalkingSkeleton\BlazorEcommerce\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll
+D:\WalkingSkeleton\BlazorEcommerce\Client\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll.gz
+D:\WalkingSkeleton\BlazorEcommerce\Client\bin\Debug\net6.0\Blazored.LocalStorage.dll
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\J5JvnDzG.gz

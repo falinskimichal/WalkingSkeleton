@@ -23,12 +23,17 @@ else
                     </a>
                     <p>@product.Description</p>
                     <h5 class="price">
-                         @GetPriceText(product)
+                        @GetPriceText(product)
                     </h5>
                 </div>
             </li>
         }
     </ul>
+    for (var i = 1; i <= ProductService.PageCount; i++)
+    {
+        <a class="btn @(i == ProductService.CurrentPage ? "btn-info" : "btn-outline-info") page-selection"
+           href="/search/@ProductService.LastSearchText/@i">@i</a>
+    }
 }
 
 @code {
@@ -45,10 +50,11 @@ else
     private String GetPriceText(Product product)
     {
         var variants = product.Variants;
-        if(variants.Count == 0)
+        if (variants.Count == 0)
         {
             return String.Empty;
-        }else if(variants.Count == 1)
+        }
+        else if (variants.Count == 1)
         {
             return $"{variants[0].Price} PLN";
         }

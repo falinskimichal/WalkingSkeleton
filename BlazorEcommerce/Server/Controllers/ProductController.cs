@@ -29,28 +29,28 @@ namespace BlazorEcommerce.Server.Controllers
         }
 
         [HttpGet("category/{categoryUrl}")]
-        public async Task<ActionResult<ServiceResponse<Product>>> GetProductsByCategory(string categoryUrl)
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductsByCategory(string categoryUrl)
         {
             var result = await _productService.GetProductbyCategoryAsync(categoryUrl);
             return Ok(result);
         }
 
-        [HttpGet("search/{searchText}")]
-        public async Task<ActionResult<ServiceResponse<Product>>> SearchProducts(string searchText)
+        [HttpGet("search/{searchText}/{page}")]
+        public async Task<ActionResult<ServiceResponse<ProductSearchResultDto>>> SearchProducts(string searchText, int page = 1)
         {
-            var result = await _productService.SearchProduct(searchText);
+            var result = await _productService.SearchProduct(searchText, page);
             return Ok(result);
         }
 
         [HttpGet("searchSuggestions/{searchText}")]
-        public async Task<ActionResult<ServiceResponse<Product>>> GetProductSearchSugestions(string searchText)
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductSearchSugestions(string searchText)
         {
             var result = await _productService.GetProductSearchSugestions(searchText);
             return Ok(result);
         }
 
         [HttpGet("featured")]
-        public async Task<ActionResult<ServiceResponse<Product>>> GetFeaturedProducts()
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetFeaturedProducts()
         {
             var result = await _productService.GetFeaturedProducts();
             return Ok(result);

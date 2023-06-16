@@ -6,9 +6,9 @@
     transition: transform .2s;
 }
 
-.media-img:hover{
-    transform: scale(1.1); 
-}
+    .media-img:hover {
+        transform: scale(1.1);
+    }
 
 .media {
     display: flex;
@@ -24,12 +24,17 @@
     text-align: center;
 }
 
-@media (max-width: 1023.98px){
+.page-selection {
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1023.98px) {
     .media {
         flex-direction: column;
     }
 
-    .media-img-wrapper{
+    .media-img-wrapper {
         width: 100%;
         height: auto;
     }
