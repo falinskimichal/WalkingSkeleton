@@ -29,7 +29,7 @@ namespace BlazorEcommerce.Server.Services.AuthService
             _ctx.Users.Add(user);
             await _ctx.SaveChangesAsync();
 
-            return new ServiceResponse<int> { Data = user.Id };
+            return new ServiceResponse<int> { Data = user.Id, Message = "Registration succesfull." };
         }
 
 
