@@ -1,24 +1,29 @@
 {
   "version": 2,
-  "dgSpecHash": "O2lodJZijoVlYDKQDARx2DWWviHALR8h3HUjz8jOC3Qz92qWUGntTcqe+f+0ojnk4UUS8yw3M8IYWNCDjNCtXQ==",
+  "dgSpecHash": "RWzLp68p/QX4+lCYyNEu4r9h6RJplH/hl6ymdTNjMxH8lHlpu1Ku2G7PqI1OqOQj5k+hMA1j99B8rfBRBHv5zw==",
   "success": true,
   "projectFilePath": "D:\\WalkingSkeleton\\BlazorEcommerce\\Shared\\BlazorEcommerce.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\blazored.localstorage\\4.3.0\\blazored.localstorage.4.3.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.0\\microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.18\\microsoft.aspnetcore.authorization.6.0.18.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.18\\microsoft.aspnetcore.components.6.0.18.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.18\\microsoft.aspnetcore.components.analyzers.6.0.18.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\6.0.18\\microsoft.aspnetcore.components.authorization.6.0.18.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.0\\microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.18\\microsoft.aspnetcore.metadata.6.0.18.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.4\\microsoft.extensions.logging.abstractions.6.0.4.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -34,6 +34,7 @@ namespace BlazorEcommerce.Server.Services.AuthService
             }
             else
             {
+                response.Success = true;
                 response.Data = CreateToken(user);
             }
 
@@ -94,10 +95,10 @@ namespace BlazorEcommerce.Server.Services.AuthService
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Email.ToLower())
+                new Claim(ClaimTypes.Name, user.Email)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken(
