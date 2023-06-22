@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace BlazorEcommerce.Server.Services.AuthService
 {
     public class AuthService : IAuthService
     {
         private readonly DataContext _ctx;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(DataContext context)
+        public AuthService(DataContext context, IConfiguration configuration)
         {
             _ctx = context;
+            _configuration = configuration;
         }
 
         public async Task<ServiceResponse<string>> Login(string email, string password)
@@ -20,22 +26,23 @@ namespace BlazorEcommerce.Server.Services.AuthService
             {
                 response.Success = false;
                 response.Message = "User not found";
-            } else if(!VeryfiedPasswordHash(password, user.PasswordHash, user.PasswrodSalt)){
-
+            }
+            else if (!VeryfiedPasswordHash(password, user.PasswordHash, user.PasswrodSalt))
+            {
                 response.Success = false;
                 response.Message = "Wrong password.";
-            } else
+            }
+            else
             {
-                response.Data = "token";
+                response.Data = CreateToken(user);
             }
 
-            
             return response;
         }
 
         private bool VeryfiedPasswordHash(string password, byte[] passwordHash, byte[] passwrodSalt)
         {
-            using(var hmac = new HMACSHA512(passwrodSalt))
+            using (var hmac = new HMACSHA512(passwrodSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
                 return computedHash.SequenceEqual(passwordHash);
@@ -80,6 +87,27 @@ namespace BlazorEcommerce.Server.Services.AuthService
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
+        }
+
+        private string CreateToken(User user)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Email.ToLower())
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: creds);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
         }
     }
 }
