@@ -200,15 +200,15 @@
       "mscorlib.dll": "sha256-C3gpWQMELcHYfrHU\/1agQUvWTtSNs9Ul2suMxcKFnIc=",
       "netstandard.dll": "sha256-CgGkoZQx73t3qchcsu85kgBcgrjNEOiudArOwKNb18k=",
       "System.Private.CoreLib.dll": "sha256-6nUSjiT7okMlkN897OnDypwppYuK7JxTahOClXkAuwE=",
-      "BlazorEcommerce.Shared.dll": "sha256-l\/bpXvKnlJ5FnKZ7i6p6BuuoKzA5e+l1mx648pnYJTs=",
-      "BlazorEcommerce.Client.dll": "sha256-aX1zhkA2ydcLWB\/IWOQznWoEvWddqF2NbjRwKwbpgpA="
+      "BlazorEcommerce.Shared.dll": "sha256-Uj10z4FGd2yzh2JlNbq1t93tX6AViLOtoGyIQ8RsfXE=",
+      "BlazorEcommerce.Client.dll": "sha256-AKTH+s17XGMpGB8aV8OCGMBAsbStiHNI6cTCB6wTwuw="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "BlazorEcommerce.Shared.pdb": "sha256-N5MRS0PYcx9+XKnPXXc006QGf04yn3vf++gfHvIfrak=",
-      "BlazorEcommerce.Client.pdb": "sha256-eDV75ivNjcG4iOvYjlMFQGss2W1kEqenfF3mzRiAz2A="
+      "BlazorEcommerce.Shared.pdb": "sha256-HH3L0K\/SWbyJz3UOVuEqOUCy96gssoFE+jHce\/h8LBE=",
+      "BlazorEcommerce.Client.pdb": "sha256-UtH4JfXxU2TCunTf8yUiPSItKBlqZoejvttYjmc2zn8="
     },
     "runtime": {
       "dotnet.6.0.16.1gjrp8o42u.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",

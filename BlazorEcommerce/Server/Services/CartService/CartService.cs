@@ -1,13 +1,20 @@
-﻿namespace BlazorEcommerce.Server.Services.CartService
+﻿using Microsoft.Extensions.Configuration.EnvironmentVariables;
+using System.Security.Claims;
+
+namespace BlazorEcommerce.Server.Services.CartService
 {
     public class CartService : ICartService
     {
         private readonly DataContext _ctx;
+        private readonly IHttpContextAccessor _httpCtxAccesor;
 
-        public CartService(DataContext ctx)
+        public CartService(DataContext ctx, IHttpContextAccessor ctxAccesor)
         {
             _ctx = ctx;
+            _httpCtxAccesor = ctxAccesor;
         }
+
+        private int GetUserId() => int.Parse(_httpCtxAccesor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         public async Task<ServiceResponse<List<CartProductResponseDto>>> GetCartProductsAsync(List<CartItem> cartItems)
         {
@@ -44,13 +51,27 @@
             return result;
         }
 
-        public async Task<ServiceResponse<List<CartProductResponseDto>>> StoreCartItem(List<CartItem> cartItems, int userId)
+        public async Task<ServiceResponse<List<CartProductResponseDto>>> StoreCartItem(List<CartItem> cartItems)
         {
-            cartItems.ForEach(cartItems => cartItems.UserId = userId);
-            _ctx.CartItems.AddRange(cartItems); 
+            cartItems.ForEach(cartItems => cartItems.UserId = GetUserId());
+            _ctx.CartItems.AddRange(cartItems);
             await _ctx.SaveChangesAsync();
 
-            return await GetCartProductsAsync(await _ctx.CartItems.Where(ci => ci.UserId == userId).ToListAsync());
+            return await GetDbCartProducts();
+        }
+
+        public async Task<ServiceResponse<int>> GetCartItemCount()
+        {
+            var count = (await _ctx.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync()).Count();
+            return new ServiceResponse<int>
+            {
+                Data = count
+            };
+        }
+
+        public async Task<ServiceResponse<List<CartProductResponseDto>>> GetDbCartProducts()
+        {
+            return await GetCartProductsAsync(await _ctx.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync());
         }
     }
 }
