@@ -4,6 +4,7 @@
 @inject ILocalStorageService localStorage
 @inject NavigationManager navigator
 @inject AuthenticationStateProvider asp
+@inject ICartService cartService
 
 <PageTitle>Login</PageTitle>
 
@@ -32,7 +33,7 @@
 
     private string errorMessage = string.Empty;
     private string returnUrl { get; set; }
-    
+
     protected override void OnInitialized()
     {
         var uri = navigator.ToAbsoluteUri(navigator.Uri);
@@ -51,6 +52,7 @@
 
             await localStorage.SetItemAsync("authToken", result.Data);
             await asp.GetAuthenticationStateAsync();
+            await cartService.StoreCartItems(true);
             navigator.NavigateTo(returnUrl);
         }
         else

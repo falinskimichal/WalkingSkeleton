@@ -9,5 +9,6 @@
         Task RemoveProductFromTheCart(int productId, int productTypeId);
 
         Task UpdateQuantit(CartProductResponseDto product);
+        Task StoreCartItems(bool emptyLocalCart);
     }
 }
