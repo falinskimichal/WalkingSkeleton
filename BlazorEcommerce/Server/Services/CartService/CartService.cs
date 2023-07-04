@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration.EnvironmentVariables;
+﻿using BlazorEcommerce.Shared;
+using Microsoft.Extensions.Configuration.EnvironmentVariables;
 using System.Security.Claims;
 
 namespace BlazorEcommerce.Server.Services.CartService
@@ -6,15 +7,13 @@ namespace BlazorEcommerce.Server.Services.CartService
     public class CartService : ICartService
     {
         private readonly DataContext _ctx;
-        private readonly IHttpContextAccessor _httpCtxAccesor;
+        private readonly IAuthService _authService;
 
-        public CartService(DataContext ctx, IHttpContextAccessor ctxAccesor)
+        public CartService(DataContext ctx, IAuthService authService)
         {
             _ctx = ctx;
-            _httpCtxAccesor = ctxAccesor;
+            _authService = authService;
         }
-
-        private int GetUserId() => int.Parse(_httpCtxAccesor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         public async Task<ServiceResponse<List<CartProductResponseDto>>> GetCartProductsAsync(List<CartItem> cartItems)
         {
@@ -53,7 +52,7 @@ namespace BlazorEcommerce.Server.Services.CartService
 
         public async Task<ServiceResponse<List<CartProductResponseDto>>> StoreCartItem(List<CartItem> cartItems)
         {
-            cartItems.ForEach(cartItems => cartItems.UserId = GetUserId());
+            cartItems.ForEach(cartItems => cartItems.UserId = _authService.GetUserId());
             _ctx.CartItems.AddRange(cartItems);
             await _ctx.SaveChangesAsync();
 
@@ -62,7 +61,7 @@ namespace BlazorEcommerce.Server.Services.CartService
 
         public async Task<ServiceResponse<int>> GetCartItemCount()
         {
-            var count = (await _ctx.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync()).Count();
+            var count = (await _ctx.CartItems.Where(ci => ci.UserId == _authService.GetUserId()).ToListAsync()).Count();
             return new ServiceResponse<int>
             {
                 Data = count
@@ -71,7 +70,70 @@ namespace BlazorEcommerce.Server.Services.CartService
 
         public async Task<ServiceResponse<List<CartProductResponseDto>>> GetDbCartProducts()
         {
-            return await GetCartProductsAsync(await _ctx.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync());
+            return await GetCartProductsAsync(await _ctx.CartItems.Where(ci => ci.UserId == _authService.GetUserId()).ToListAsync());
+        }
+
+        public async Task<ServiceResponse<bool>> AddToCart(CartItem cartItem)
+        {
+            cartItem.UserId = _authService.GetUserId();
+            var sameItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.ProductId == cartItem.ProductId
+            && ci.ProductTypeId == cartItem.ProductTypeId && ci.UserId == cartItem.UserId);
+
+            if (sameItem == null)
+            {
+                _ctx.CartItems.Add(cartItem);
+            }
+            else
+            {
+                sameItem.Quantity += cartItem.Quantity;
+            }
+
+            await _ctx.SaveChangesAsync();
+
+            return new ServiceResponse<bool> { Data = true };
+
+        }
+
+        public async Task<ServiceResponse<bool>> UpdateQuantity(CartItem cartItem)
+        {
+            var dbCartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.ProductId == cartItem.ProductId
+                                && ci.ProductTypeId == cartItem.ProductTypeId && ci.UserId == _authService.GetUserId());
+
+            if (dbCartItem == null)
+            {
+                return new ServiceResponse<bool>
+                {
+                    Data = false,
+                    Success = false,
+                    Message = "Cart item does not exists."
+                };
+            }
+
+            dbCartItem.Quantity = cartItem.Quantity;
+            await _ctx.SaveChangesAsync();
+
+            return new ServiceResponse<bool> { Data = true, Success = true };
+        }
+
+        public async Task<ServiceResponse<bool>> RemoveItemFromCart(int productId, int productTypeId)
+        {
+            var dbCartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.ProductId == productId
+                                && ci.ProductTypeId == productTypeId && ci.UserId == _authService.GetUserId());
+
+            if (dbCartItem == null)
+            {
+                return new ServiceResponse<bool>
+                {
+                    Data = false,
+                    Success = false,
+                    Message = "Cart item does not exists."
+                };
+            }
+
+            _ctx.CartItems.Remove(dbCartItem);
+            await _ctx.SaveChangesAsync();
+
+            return new ServiceResponse<bool> { Data = true, Success = true };
         }
     }
 }

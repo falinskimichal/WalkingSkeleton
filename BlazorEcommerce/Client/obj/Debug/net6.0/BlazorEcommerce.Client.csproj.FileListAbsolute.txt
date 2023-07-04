@@ -850,3 +850,4 @@ D:\WalkingSkeleton\BlazorEcommerce\Client\bin\Debug\net6.0\Microsoft.AspNetCore.
 D:\WalkingSkeleton\BlazorEcommerce\Client\bin\Debug\net6.0\Microsoft.Net.Http.Headers.dll
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\5qcqTnCK.gz
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\Bfqwhifz.gz
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Pages\Orders.razor.rz.scp.css
