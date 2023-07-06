@@ -16,6 +16,45 @@ namespace BlazorEcommerce.Server.Services.OrderService
             _authService = authService;
         }
 
+        public async Task<ServiceResponse<OrderDetailsResponse>> GetOrderDetails(int orderId)
+        {
+            var response = new ServiceResponse<OrderDetailsResponse>();
+            var order = await _context.Orders.Include(o => o.OrderItems)
+                                             .ThenInclude(oi => oi.Product)
+                                             .Include(o => o.OrderItems)
+                                             .ThenInclude(oi => oi.ProductType)
+                                             .Where(o => o.UserId == _authService.GetUserId() && o.Id == orderId)
+                                             .OrderByDescending(o => o.OrderDate)
+                                             .FirstOrDefaultAsync();
+
+            if (order == null)
+            {
+                response.Success = false;
+                response.Message = "Order not found.";
+                return response;
+            }
+
+            var orderDetailResponse = new OrderDetailsResponse
+            {
+                OrderDate = order.OrderDate,
+                TotalPrice = order.TotalPrice,
+                Products = new List<OrderDeatailsProductResponse>()
+            };
+
+            order.OrderItems.ForEach(item => orderDetailResponse.Products.Add(new OrderDeatailsProductResponse
+            {
+                ProductId = item.ProductId,
+                ImageUrl     = item.Product.ImageUrl,
+                ProductType = item.ProductType.Name,
+                Quantity = item.Quantity,
+                Title = item.Product.Title,
+                TotalPrice = item.TotalPrice
+            }));
+
+            response.Data = orderDetailResponse;
+            return response;
+        }
+
         public async Task<ServiceResponse<List<OrderOverviewResponseDto>>> GetOrders()
         {
             var response = new ServiceResponse<List<OrderOverviewResponseDto>>();
