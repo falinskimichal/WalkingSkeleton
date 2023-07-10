@@ -7,7 +7,7 @@
         Task<List<CartProductResponseDto>> GetCartProducts();
         Task RemoveProductFromTheCart(int productId, int productTypeId);
 
-        Task UpdateQuantit(CartProductResponseDto product);
+        Task UpdateQuantity(CartProductResponseDto product);
         Task StoreCartItems(bool emptyLocalCart);
         Task GetCartItemsCount();
     }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RWzLp68p/QX4+lCYyNEu4r9h6RJplH/hl6ymdTNjMxH8lHlpu1Ku2G7PqI1OqOQj5k+hMA1j99B8rfBRBHv5zw==",
+  "dgSpecHash": "UzZjMs+D/k4ffke1IRjaZpAqplUgM3yR4QC0ukLMjb31i8slGnb2SWIs7m8kgoQS2iSjEt3NzxjqYFJX2m8Plg==",
   "success": true,
   "projectFilePath": "D:\\WalkingSkeleton\\BlazorEcommerce\\Shared\\BlazorEcommerce.Shared.csproj",
   "expectedPackageFiles": [
@@ -20,10 +20,19 @@
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\stripe.net\\41.22.0\\stripe.net.41.22.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
     "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\mfalinski.CPIT\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

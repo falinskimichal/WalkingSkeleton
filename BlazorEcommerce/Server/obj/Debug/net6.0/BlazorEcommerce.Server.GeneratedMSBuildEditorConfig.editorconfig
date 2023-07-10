@@ -9,13 +9,13 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorEcommerce.Server
 build_property.RootNamespace = BlazorEcommerce.Server
-build_property.ProjectDir = D:\WalkingSkeleton\BlazorEcommerce\Server\
+build_property.ProjectDir = D:\WalkingSkeleton\BlazorEcommerce\server\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\WalkingSkeleton\BlazorEcommerce\Server
+build_property.MSBuildProjectDirectory = D:\WalkingSkeleton\BlazorEcommerce\server
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/WalkingSkeleton/BlazorEcommerce/Server/Pages/Error.cshtml]
+[D:/WalkingSkeleton/BlazorEcommerce/server/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

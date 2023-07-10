@@ -124,7 +124,7 @@ namespace BlazorEcommerce.Client.Services.CartService
             }
         }
 
-        public async Task UpdateQuantit(CartProductResponseDto product)
+        public async Task UpdateQuantity(CartProductResponseDto product)
         {
             if (await _authService.IsUserAuthenticated())
             {

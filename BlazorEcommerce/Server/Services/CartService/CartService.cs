@@ -1,5 +1,6 @@
 ﻿using BlazorEcommerce.Shared;
 using Microsoft.Extensions.Configuration.EnvironmentVariables;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Security.Claims;
 
 namespace BlazorEcommerce.Server.Services.CartService
@@ -68,8 +69,12 @@ namespace BlazorEcommerce.Server.Services.CartService
             };
         }
 
-        public async Task<ServiceResponse<List<CartProductResponseDto>>> GetDbCartProducts()
+        public async Task<ServiceResponse<List<CartProductResponseDto>>> GetDbCartProducts(int? userId = null)
         {
+            if(userId == null)
+            {
+                userId = _authService.GetUserId();
+            }
             return await GetCartProductsAsync(await _ctx.CartItems.Where(ci => ci.UserId == _authService.GetUserId()).ToListAsync());
         }
 

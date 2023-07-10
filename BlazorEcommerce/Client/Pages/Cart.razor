@@ -1,6 +1,8 @@
 ﻿@page "/cart"
-@inject ICartService cartService
-@inject IOrderService orderService
+@inject ICartService CartService
+@inject IOrderService OrderService
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Shopping Cart</PageTitle>
 
@@ -9,10 +11,6 @@
 @if (cartProducts == null || cartProducts.Count == 0)
 {
     <span>@message</span>
-}
-else if (orderPlaced)
-{
-    <span>Thnak you for your order! You can check your order <a href="orders">here</a></span>
 }
 else
 {
@@ -27,22 +25,29 @@ else
                     <h5><a href="/product/@product.ProductId">@product.Title</a></h5>
                     <span>@product.ProductType</span><br />
                     <input type="number" value="@product.Quantity"
-                    @onchange="@((ChangeEventArgs e) => UpdateQuantity(e, product))"
-                           class="form-control input-quantity" min="1" />
+                   @onchange="@((ChangeEventArgs e) => UpdateQuantity(e, product))"
+                   class="form-control input-quantity"
+                   min="1" />
                     <button class="btn-delete" @onclick="@(() =>
-                        RemoveProductFromCart(product.ProductId,  product.ProductTypeId))">
-                        Remove
+                        RemoveProductFromCart(product.ProductId, product.ProductTypeId))">
+                        Delete
                     </button>
                 </div>
-                <div class="cart-product-price ">$@(product.Price * product.Quantity)</div>
+                <div class="cart-product-price">$@(product.Price * product.Quantity)</div>
             </div>
         }
         <div class="cart-product-price">
-            Total (@cartProducts.Count):$@cartProducts.Sum(@product => @product.Price * product.Quantity)
+            Total (@cartProducts.Count): $@cartProducts.Sum(product => @product.Price * product.Quantity)
         </div>
     </div>
-
-    <button @onclick="PlaceOrder" class="btn alert-success float-end" mt-1>Place Order</button>
+    @if (isAuthenticated)
+    {
+        <div>
+            <h5>Delivery Address</h5>
+            <AddressForm />
+        </div>
+    }
+    <button @onclick="PlaceOrder" class="btn alert-success float-end mt-1">Checkout</button>
 }
 
 
@@ -50,25 +55,24 @@ else
 @code {
     List<CartProductResponseDto> cartProducts = null;
     string message = "Loading cart...";
-    bool orderPlaced = false;
+    bool isAuthenticated = false;
 
     protected override async Task OnInitializedAsync()
     {
-        orderPlaced = false;
+        isAuthenticated = await AuthService.IsUserAuthenticated();
         await LoadCart();
     }
 
     private async Task RemoveProductFromCart(int productId, int productTypeId)
     {
-        await cartService.RemoveProductFromTheCart(productId, productTypeId);
+        await CartService.RemoveProductFromTheCart(productId, productTypeId);
         await LoadCart();
     }
 
-
     private async Task LoadCart()
     {
-        await cartService.GetCartItemsCount();
-        cartProducts = await cartService.GetCartProducts();
+        await CartService.GetCartItemsCount();
+        cartProducts = await CartService.GetCartProducts();
         if (cartProducts == null || cartProducts.Count == 0)
         {
             message = "Your cart is empty.";
@@ -78,16 +82,14 @@ else
     private async Task UpdateQuantity(ChangeEventArgs e, CartProductResponseDto product)
     {
         product.Quantity = int.Parse(e.Value.ToString());
-
         if (product.Quantity < 1)
             product.Quantity = 1;
-        await cartService.UpdateQuantit(product);
+        await CartService.UpdateQuantity(product);
     }
 
     private async Task PlaceOrder()
     {
-        await orderService.PlaceOrder();
-        await cartService.GetCartItemsCount();
-        orderPlaced = true;
+        string url = await OrderService.PlaceOrder();
+        NavigationManager.NavigateTo(url);
     }
 }
