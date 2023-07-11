@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorEcommerce.Server.Controllers
@@ -18,6 +19,34 @@ namespace BlazorEcommerce.Server.Controllers
         public async Task<ActionResult<ServiceResponse<List<Category>>>> GetCategories()
         {
             var result = await _categoryService.GetCategoriesAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("admin"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ServiceResponse<List<Category>>>> GetAdminCategories()
+        {
+            var result = await _categoryService.GetAdminCategoriesAsync();
+            return Ok(result);
+        }
+
+        [HttpDelete("admin"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ServiceResponse<List<Category>>>> DeleteCategory(int id)
+        {
+            var result = await _categoryService.DeleteCategoryAsync(id);
+            return Ok(result);
+        }
+
+        [HttpGet("admin"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ServiceResponse<List<Category>>>> AddCategory(Category cat)
+        {
+            var result = await _categoryService.AddCategoryAsync(cat);
+            return Ok(result);
+        }
+
+        [HttpPost("admin"), Authorize(Roles = "Admin")]
+        public async Task<ActionResult<ServiceResponse<List<Category>>>> UpdateCategory(Category cat)
+        {
+            var result = await _categoryService.UpdateCategoryAsync(cat);
             return Ok(result);
         }
     }

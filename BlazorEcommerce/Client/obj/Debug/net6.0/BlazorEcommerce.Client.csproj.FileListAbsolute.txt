@@ -884,3 +884,4 @@ D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\B59rNH4n.gz
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\DKe4uRoS.gz
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\II+GgkRa.gz
 D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\build-gz\kE3FNdbv.gz
+D:\WalkingSkeleton\BlazorEcommerce\Client\obj\Debug\net6.0\scopedcss\Shared\AdminMenu.razor.rz.scp.css
