@@ -16,11 +16,11 @@ namespace BlazorEcommerce.Server.Services.CategoryService
         {
             category.Editing = false;
             category.IsNew = false;
-
+            
+            _ctx.Categories.Add(category);
             await _ctx.SaveChangesAsync();
-
+            
             return await GetAdminCategoriesAsync();
-
         }
 
         public async Task<ServiceResponse<List<Category>>> DeleteCategoryAsync(int categoryId)

@@ -36,14 +36,14 @@ namespace BlazorEcommerce.Server.Controllers
             return Ok(result);
         }
 
-        [HttpGet("admin"), Authorize(Roles = "Admin")]
+        [HttpPost("admin"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ServiceResponse<List<Category>>>> AddCategory(Category cat)
         {
             var result = await _categoryService.AddCategoryAsync(cat);
             return Ok(result);
         }
 
-        [HttpPost("admin"), Authorize(Roles = "Admin")]
+        [HttpPut("admin"), Authorize(Roles = "Admin")]
         public async Task<ActionResult<ServiceResponse<List<Category>>>> UpdateCategory(Category cat)
         {
             var result = await _categoryService.UpdateCategoryAsync(cat);
