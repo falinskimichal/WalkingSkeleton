@@ -9,7 +9,8 @@ global using BlazorEcommerce.Server.Services.OrderService;
 global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using BlazorEcommerce.Server.Services.PaymentService;
-using BlazorEcommerce.Client.Services.AddressService;
+global using BlazorEcommerce.Client.Services.AddressService;
+global using BlazorEcommerce.Server.Services.ProductTypeService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<IProductTypeService, ProductTypeService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
