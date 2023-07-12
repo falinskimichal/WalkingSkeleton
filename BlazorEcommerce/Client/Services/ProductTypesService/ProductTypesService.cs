@@ -18,7 +18,7 @@ namespace BlazorEcommerce.Client.Services.ProductTypesService
         {
             var result = await _http.GetFromJsonAsync<ServiceResponse<List<ProductType>>>("api/producttype");
 
-            ProductTypes = result.Data
+            ProductTypes = result.Data;
         }
     }
 }
